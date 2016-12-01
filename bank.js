@@ -27,6 +27,10 @@ Bank.prototype = {
       return sum + account.amount;
     }, 0);
     return total;
+  },
+  averageAmount: function() {
+    var total = this.accountTotals();
+    return total / this.accountCount();
   }
 };
 

@@ -10,7 +10,7 @@ describe('Bank', function() {
 
   beforeEach(function() {
     accountStub1 = {name: "Mr Johnson", amount: 5000, type: "personal"};
-    accountStub2 = {name: "Mr Max", amount: 2000, type: "personal"};
+    accountStub2 = {name: "Mr Max", amount: 3000, type: "personal"};
     accountStub3 = {name: "Mr Euan", amount: 10000, type: "business"};
     bank = new Bank('Barclays');
   });
@@ -49,8 +49,15 @@ describe('Bank', function() {
     bank.addAccount(accountStub2);
     bank.addAccount(accountStub3);
     var total = bank.accountTotals();
-    assert.equal(17000, total);
-  })
+    assert.equal(18000, total);
+  });
+
+  it("should be able to find the average value of bank accounts", function() {
+    bank.addAccount(accountStub1);
+    bank.addAccount(accountStub2);
+    bank.addAccount(accountStub3);
+    assert.equal(6000, bank.averageAmount());
+  });
 
 });
 
