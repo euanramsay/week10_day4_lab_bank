@@ -12,5 +12,9 @@ describe('Bank', function() {
   it("should have a name", function() {
     assert.equal('Barclays', bank.name);
   });
-  
+
+  it("should start with zero accounts", function() {
+    assert.equal(0, bank.accountCount());
+  })
+
 });
