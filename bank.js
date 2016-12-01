@@ -31,6 +31,15 @@ Bank.prototype = {
   averageAmount: function() {
     var total = this.accountTotals();
     return total / this.accountCount();
+  },
+  accountTotalsByType: function(type) {
+    var filteredAccounts = this.accounts.filter(function(account) {
+      return account.type === type; 
+    });
+    var total = filteredAccounts.reduce(function(sum, account) {
+      return sum + account.amount;
+    }, 0);
+    return total;
   }
 };
 

@@ -59,6 +59,13 @@ describe('Bank', function() {
     assert.equal(6000, bank.averageAmount());
   });
 
+  it("should be able to find total value for an account type", function() {
+    bank.addAccount(accountStub1);
+    bank.addAccount(accountStub2);
+    bank.addAccount(accountStub3);
+    assert.equal(8000, bank.accountTotalsByType('personal'));
+  });
+
 });
 
 
