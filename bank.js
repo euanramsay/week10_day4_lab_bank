@@ -21,6 +21,12 @@ Bank.prototype = {
       return accountA.amount - accountB.amount;
     });
     return this.accounts[this.accounts.length - 1];
+  },
+  accountTotals: function() {
+    var total = this.accounts.reduce(function(sum, account) {
+      return sum + account.amount;
+    }, 0);
+    return total;
   }
 };
 

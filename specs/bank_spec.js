@@ -8,7 +8,7 @@ var accountStub3;
 
 describe('Bank', function() {
 
-  before(function() {
+  beforeEach(function() {
     accountStub1 = {name: "Mr Johnson", amount: 5000, type: "personal"};
     accountStub2 = {name: "Mr Max", amount: 2000, type: "personal"};
     accountStub3 = {name: "Mr Euan", amount: 10000, type: "business"};
@@ -42,6 +42,14 @@ describe('Bank', function() {
     bank.addAccount(accountStub3);
     var foundAccount = bank.findLargestAccount();
     assert.equal(accountStub3, foundAccount);
+  });
+
+  it("shoud be able to find total value of bank accounts", function(){
+    bank.addAccount(accountStub1);
+    bank.addAccount(accountStub2);
+    bank.addAccount(accountStub3);
+    var total = bank.accountTotals();
+    assert.equal(17000, total);
   })
 
 });
