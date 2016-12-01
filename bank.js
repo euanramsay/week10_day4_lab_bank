@@ -13,9 +13,15 @@ Bank.prototype = {
   findAccountByName: function(name) {
     var foundAccount = this.accounts.find(function(account) {
       return account.name === name;
-    })
+    });
     return foundAccount;
+  },
+  findLargestAccount: function() {
+    this.accounts.sort(function(accountA, accountB){
+      return accountA.amount - accountB.amount;
+    });
+    return this.accounts[this.accounts.length - 1];
   }
-}
+};
 
 module.exports = Bank;
