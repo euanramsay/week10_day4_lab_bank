@@ -6,6 +6,9 @@ var Bank = function(name) {
 Bank.prototype = {
   accountCount: function() {
     return this.accounts.length;
+  },
+  addAccount: function(account) {
+    this.accounts.push(account);
   }
 }
 
